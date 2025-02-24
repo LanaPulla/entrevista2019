@@ -1,49 +1,31 @@
-## Instruções
+# Projeto Entrevista
 
-**Configurações antes de codificar**
+## Configurações
 
-1 - No arquivo 'DefineCredenciais.php' definir as variaveis de acordo com as configurações do seu banco de dados local.
+1. Definir as variáveis em `DefineCredenciais.php`. **REALIZADA**
+2. Criar banco de dados `entrevista`. **REALIZADA**
+3. Importar dados de `entrevista.sql`. **REALIZADA**
 
-2 - Criar um banco de dados chamado entrevista.
+## Modificações na Tela de Listagem
 
-3 - Importar os dados do arquivo 'entrevista.sql'.
+1. Exibir data de cadastro em DD/MM/AAAA. **REALIZADA**
+2. Adicionar coluna de ações (editar e deletar). **REALIZADA**
+3. Mensagem "nenhum registro encontrado" se não houver registros. **REALIZADA**
+4. Criar filtro por nome e CPF. **REALIZADA**
+5. Exibir CPF no formato ###.###.###-##. **REALIZADA**
 
-**Modificar Tela de Listagem de Usuários**
+## Modificações na Tela de Cadastro
 
-1 - Exibir a data de cadastro no formato DD/MM/AAAA
+1. Validar preenchimento de todos os campos. **REALIZADA**
+2. Redirecionar para listagem após salvar e mostrar mensagem de sucesso. **REALIZADA**
 
-2 - Ter uma coluna de ações, com botões para editar e deletar
+## Novas Funcionalidades
 
-3 - Em caso de não trazer registro, ter uma mensagem "nenhum registro encontrado" e não exibir a mensagem
+1. Possibilitar deletar registro. **REALIZADA**
+2. Possibilitar edição de dados. **REALIZADA**
+3. Criar menu para cadastro e listagem. **REALIZADA**
+4. Criar CRUD de perfil e relacionar com usuário. **REALIZADA**
 
-4 - Criar uma area de filtro, que possa buscar por nome e cpf
+## Melhorias Extras
 
-5 - Exibir CPF no padrão ###.###.###-##
-
-**Modificar Tela de Cadastro de Usuários**
-
-1 - Criar validação para não permitir salvar sem preencher todos os campos
-
-2 - Após salvar redirecionar para tela de listagem, e mostrar mensagem de sucesso.
-
-**Novas Funcionalidades**
-
-1 - Possibilitar deletar registro
-
-2 - Possibilitar edição dos dados.
-
-3 - Criar menu com acesso as telas de cadastro e listagem.
-
-4 - Criar CRUD de perfil e fazer o relacionamento com usuário
-
-**Melhorias não obrigatórias - Pontos Extras**
-
-1 - Exibir na listagem o perfil do usuário
-
-2 - Incluir e usar a biblioteca Bootstrap ou Materialize
-
-3 - Incluir e usar a biblioteca Jquery ou Vue JS
-
-4 - Nesta tela de instruções, criar checkbox para marcar que a tarefa foi concluida e salvar este estado sem usar a session do PHP e nem o banco de dados.
-
-5 - criar este mesmo projeto, só que utilizando o framework laravel
+1. Exibir perfil do usuário na listagem. **REALIZADA**
