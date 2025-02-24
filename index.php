@@ -22,8 +22,8 @@ include_once DIR_UTIL . 'Define.php';
             <div class="conteudo-instrucao">
                 <h2>Instruções</h2>
                 <p><strong>Configurações antes de codificar</strong></p>
-                <p>
-                    1 - No arquivo 'DefineCredenciais.php' definir as variaveis de acordo com as configurações do seu banco de dados local.
+                <p style="font-weight: bold;">
+                    1 - No arquivo 'DefineCredenciais.php' definir as variaveis de acordo com as configurações do seu banco de dados local. REALIZADO
                     <p class="font10"></p>
                 </p>
                 <p>
