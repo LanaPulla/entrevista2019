@@ -30,14 +30,18 @@ include_once DIR_UTIL . 'Define.php';
             .menu a:hover {
                 background-color:rgb(20, 166, 202);;
             }
+            h1{
+                display: flex;
+                justify-content: center;
+            }
         </style>
     </head>
     <body> 
         <header>
-            <h1>Entrevista - Desenvolvimento Canoastec</h1>
+            <h1 >Entrevista - Desenvolvimento Canoastec</h1>
             <nav class="menu">
-                <a href="GuiCadastroUsuario.php">Cadastro Usuário</a>
-                <a href="GuiUsuarios.php">Lista Usuários</a>
+                <a href="GuiCadastroUsuario.php">Cadastro</a>
+                <a href="GuiUsuarios.php">Listagem</a>
             </nav>
         </header>
         <hr>

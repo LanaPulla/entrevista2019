@@ -97,6 +97,7 @@ class UsuarioDAO {
             $usuario->setNmUsuario($dados['nm_usuario']);
             $usuario->setNrCpf($dados['nr_cpf']);
             $usuario->setDsEmail($dados['ds_email']);
+            $usuario->setIdPerfil($dados['id_perfil']);
             $usuario->setAoStatus($dados['ao_status']);
             return $usuario;
         }
@@ -104,12 +105,13 @@ class UsuarioDAO {
     }
 
     public function atualizar($usuario) {
-        $sql = "UPDATE usuario SET nm_usuario = ?, nr_cpf = ?, ds_email = ?, ao_status = ? WHERE id_usuario = ?";
+        $sql = "UPDATE usuario SET nm_usuario = ?, nr_cpf = ?, ds_email = ?, id_perfil = ?, ao_status = ? WHERE id_usuario = ?";
         $stmt = Conexao::connect()->prepare($sql);
         return $stmt->execute([
             $usuario->getNmUsuario(),
             $usuario->getNrCpf(),
             $usuario->getDsEmail(),
+            $usuario->getIdPerfil(),
             $usuario->getAoStatus(),
             $usuario->getIdUsuario()
         ]);

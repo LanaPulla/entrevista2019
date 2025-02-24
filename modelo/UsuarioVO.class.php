@@ -31,6 +31,7 @@ class UsuarioVO {
         return $this->id_perfil;
     }
 
+        
     function getIdUsuarioInclusao() {
         return $this->id_usuarioinclusao;
     }

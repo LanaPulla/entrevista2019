@@ -3,7 +3,7 @@ include_once './Header.php';
 include_once DIR_MODELO . 'UsuarioVO.class.php';
 ?>
 
-<div class="container">
+<div class="wrapper">
     
     <form class="form-horizontal" id="cadUsuario" method="POST" action="../controle/ControleUsuario.php?op=salvar" onsubmit="return validarFormulario()">
     
@@ -36,20 +36,20 @@ include_once DIR_MODELO . 'UsuarioVO.class.php';
         </div>
     
         <div class="formulario-campos">
-            <label>Ativo ?</label>
+            <label>Ativo </label>
             <input type="checkbox" name="ao_status" id="ao_status" value="1">
         </div>
     
         <div class="botoes">
-            <button type="submit" class="">Salvar</button>
-            <button type="button">Voltar</button>
+            <button type="submit" class="salvar">Salvar</button>
+            <button type="button" class="voltar">Voltar</button>
         </div>
     </form>
 </div>
 
 <script>
     function validarFormulario() {
-        let campos = ['nm_usuario', 'nr_cpf', 'ds_login', 'pw_senha', 'ds_email', 'id_perfil'];
+        let campos = ['nm_usuario', 'nr_cpf', 'ds_login', 'pw_senha', 'ds_email', 'id_perfil', 'nm_perfil'];
         for (let campo of campos) {
             if (document.getElementById(campo).value.trim() === '') {
                 alert('Por favor, preencha todos os campos obrigatórios.');
@@ -64,13 +64,53 @@ include_once 'Footer.php';
 ?>
 
 <style>
+
+    input, select, option {
+        padding: 8px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+  
     .formulario-campos{
-        margin: 1em 30%;
+        border-radius: 5px;
+        margin: 2em 30%;
     }
 
-    .botoes{
-        float: right;
-        margin: 3em 47%;
-       
+    .botoes {
+        gap: 1rem;
+        display: flex;
+        justify-content: center; 
+        margin: 3em 30%; 
+
     }
+    .salvar{
+        color: #fff;
+        border: none;
+        background-color: #006b85;
+        padding: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .salvar:hover{
+        background-color:rgb(20, 166, 202);
+    }
+    .voltar{
+        color: #fff;
+        border: none;
+        background-color: #006b85;
+        padding: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .voltar:hover{
+        background-color:rgb(20, 166, 202);
+    }
+    
 </style>

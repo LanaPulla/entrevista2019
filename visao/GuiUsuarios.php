@@ -7,7 +7,7 @@ $dao = new UsuarioDAO();
 $nomeFiltro = isset($_GET['nome']) ? trim($_GET['nome']) : '';
 $cpfFiltro = isset($_GET['cpf']) ? trim($_GET['cpf']) : '';
 
-// Limita o CPF para no máximo 11 caracteres
+
 $cpfFiltro = substr($cpfFiltro, 0, 11);
 
 $filtros = "";
@@ -21,19 +21,19 @@ if (!empty($cpfFiltro)) {
 $usuarios = $dao->listar($filtros);
 
 function formatarCpf($cpf) {
-    // Remove caracteres não numéricos
+    
     $cpf = preg_replace('/\D/', '', $cpf);
 
-    // Formata o CPF se tiver exatamente 11 dígitos
+    
     if (strlen($cpf) == 11) {
         return substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
     }
 
-    return $cpf; // Caso o CPF seja inválido, retorna como está
+    return $cpf; 
 }
 
-?>
 
+?>
 
 <div class="conteudo">
     <!-- Área de Filtro -->
@@ -48,12 +48,13 @@ function formatarCpf($cpf) {
         <table>
             <thead>
                 <tr>
-                    <th width="35%">Nome</th>
+                    <th width="20%">Nome</th>
+                    <th width="20%">Perfil</th>
                     <th width="10%">CPF</th>
-                    <th width="35%">Email</th>
+                    <th width="25%">Email</th>
                     <th width="8%">Status</th>
                     <th width="40%">Data de Cadastro</th>
-                    <th width="12%">Ações</th>
+                    <th width="12%">Ações<th>
                 </tr>
             </thead>
 
@@ -62,6 +63,7 @@ function formatarCpf($cpf) {
                     <?php foreach ($usuarios as $usuario) { ?>
                         <tr>
                             <td><?=$usuario->getNmUsuario()?></td>
+                            <td><?=$usuario->getIdPerfil() == 1 ? 'Administrador' : ($usuario->getIdPerfil() == 2 ? 'Atendente' : ($usuario->getIdPerfil() == 3 ? 'Desenvolvedor' : 'Desconhecido'))?></td>                            
                             <td><?= formatarCpf($usuario->getNrCpf()) ?></td>
                             <td><?=$usuario->getDsEmail()?></td>
                             <td><?=$usuario->getAoStatus() ? "Ativo" : "Inativo" ?></td>
@@ -104,7 +106,7 @@ function formatarCpf($cpf) {
     }
 
     .btn-excluir {
-        background-color:rgb(158, 34, 26);
+        background-color:rgb(126, 45, 39);
         color: white;
     }
 
@@ -116,7 +118,7 @@ function formatarCpf($cpf) {
         background-color: #4CAF50;
     }
 
-    /* Estilos do Formulário de Filtro */
+
     .filtro-form {
         display: flex;
         justify-content: center;
@@ -138,6 +140,8 @@ function formatarCpf($cpf) {
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 14px;
+
     }
 
     .filtro-form .limpar-filtro {

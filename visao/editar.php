@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario->setNmUsuario($_POST['nome']);
     $usuario->setNrCpf($_POST['cpf']);
     $usuario->setDsEmail($_POST['email']);
+    $usuario->setIdPerfil($_POST['perfil']);
     $usuario->setAoStatus(isset($_POST['status']) ? 1 : 0);
     
     $dao->atualizar($usuario);
@@ -38,17 +39,26 @@ if (!$usuario) {
 
             <label>Email:</label>
             <input type="email" name="email" value="<?=$usuario->getDsEmail()?>" required>
+            
+            <label>Status: Ativo <input type="checkbox" name="status" <?=$usuario->getAoStatus() ? 'checked' : ''?>> 
+            </label>
+            
+            <label>Perfil</label>
+            <select name="perfil" required>
+        <option value="1" <?= $usuario->getIdPerfil() == 1 ? 'selected' : '' ?>>Administrador</option>
+        <option value="2" <?= $usuario->getIdPerfil() == 2 ? 'selected' : '' ?>>Atendente</option>
+        <option value="3" <?= $usuario->getIdPerfil() == 3 ? 'selected' : '' ?>>Desenvolvedor</option>
+    </select>
 
-            <label>Status:</label>
-            <input type="checkbox" name="status" <?=$usuario->getAoStatus() ? 'checked' : ''?>> Ativo
-
+            
             <button type="submit">Salvar Alterações</button>
         </form>
     </div>
 </div>
 
-<?php include_once 'Footer.php'; ?>
-
+<?php 
+    include_once 'Footer.php'; 
+?>
 <style>
     .formulario {
         width: 50%;
@@ -57,6 +67,12 @@ if (!$usuario) {
         background: #fcfcfc;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input, select, option {
+        padding: 8px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
     }
 
     label {
@@ -75,9 +91,10 @@ if (!$usuario) {
         color: white;
         border: none;
         cursor: pointer;
+        margin-top: 5px;
     }
 
     button:hover {
-        background-color: #005a6b;
+        background-color:rgb(20, 166, 202);
     }
 </style>
